@@ -1,89 +1,1996 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <title>Birthday Surprise ❤️</title>
 
+
 <style>
-body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
-    height: 100vh;
-    overflow: hidden;
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            #ffd6e0,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            #ffc0cb,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ff9a9e,
+            #fad0c4
+        );
+
+    text-align: center;
+
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        50px 20px 100px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 h1 {
-    margin-top: 100px;
-    color: white;
+
+    margin: 10px 0;
+
+    font-size: 50px;
+
+    text-shadow:
+        0 4px 15px
+        rgba(255,70,120,0.5);
+
+    animation:
+        heartbeat 1.8s infinite;
 }
 
-h2 {
-    margin-top: 30px;
-    color: white;
+.main-subtitle {
+
+    margin-top: 15px;
+
+    font-size: 23px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.2);
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
+.small-text {
+
+    margin-top: 10px;
+
+    font-size: 16px;
+
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   SPARKLES
+===================================================== */
+
+.sparkle {
+
+    position: fixed;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    font-size: 20px;
+
+    animation:
+        sparkleAnimation
+        3s ease-in-out infinite;
+}
+
+.sparkle1 {
+
+    top: 12%;
+
+    left: 8%;
+}
+
+.sparkle2 {
+
+    top: 25%;
+
+    right: 10%;
+
+    animation-delay: 1s;
+}
+
+.sparkle3 {
+
+    top: 60%;
+
+    left: 5%;
+
+    animation-delay: 1.5s;
+}
+
+.sparkle4 {
+
+    top: 75%;
+
+    right: 7%;
+
+    animation-delay: 2s;
+}
+
+
+/* =====================================================
+   PHOTO GALLERY
+===================================================== */
+
+.photo-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    width: 100%;
+
+    max-width: 950px;
+
+    margin:
+        40px auto;
+}
+
+.photo-card {
+
+    position: relative;
+
+    background:
+        rgba(255,255,255,0.35);
+
+    padding: 8px;
+
+    border-radius: 22px;
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(255,70,120,0.25),
+
+        inset 0 0 10px
+        rgba(255,255,255,0.5);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
     cursor: pointer;
-    position: absolute;
 }
+
+.photo-card img {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 17px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* Photo angles */
+
+.photo-card:nth-child(1) {
+
+    transform:
+        rotate(-3deg);
+}
+
+.photo-card:nth-child(2) {
+
+    transform:
+        rotate(2deg);
+}
+
+.photo-card:nth-child(3) {
+
+    transform:
+        rotate(-2deg);
+}
+
+.photo-card:nth-child(4) {
+
+    transform:
+        rotate(3deg);
+}
+
+
+/* Hover */
+
+.photo-card:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-10px)
+        scale(1.05);
+
+    box-shadow:
+
+        0 20px 45px
+        rgba(255,50,100,0.4);
+}
+
+.photo-card:hover img {
+
+    transform:
+        scale(1.03);
+}
+
+
+/* =====================================================
+   PHOTO CLICK HINT
+===================================================== */
+
+.photo-hint {
+
+    margin-top: -20px;
+
+    margin-bottom: 30px;
+
+    font-size: 14px;
+
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+#lightbox {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    inset: 0;
+
+    background:
+        rgba(50,0,20,0.85);
+
+    backdrop-filter:
+        blur(8px);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    cursor: pointer;
+}
+
+#lightbox img {
+
+    max-width: 90%;
+
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,0.5);
+
+    animation:
+        lightboxOpen
+        0.4s ease;
+}
+
+#closeLightbox {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   LETTER SECTION
+===================================================== */
+
+.letter-section {
+
+    max-width: 750px;
+
+    margin:
+        60px auto 40px;
+
+    padding: 30px;
+
+    background:
+        rgba(255,255,255,0.20);
+
+    border-radius: 30px;
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,50,100,0.2);
+}
+
+.letter-title {
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   LETTER BUTTON
+===================================================== */
+
+#openLetterBtn {
+
+    padding:
+        16px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff4b2b
+        );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,50,100,0.35);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+#openLetterBtn:hover {
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,50,100,0.5);
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(-20px)
+        scale(0.95);
+
+    transition:
+        max-height 1s ease,
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    margin-top: 25px;
+}
+
+.letter.show {
+
+    max-height: 1000px;
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   LETTER PAPER
+===================================================== */
+
+.letter-paper {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf5,
+            #fff1f3
+        );
+
+    color: #6b3e3e;
+
+    padding: 45px;
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.2);
+}
+
+.letter-paper h2 {
+
+    color: #e75480;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.letter-paper p {
+
+    font-size: 17px;
+
+    margin: 15px 0;
+}
+
+.letter-paper::before {
+
+    content: "❤️";
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 20px;
+
+    font-size: 25px;
+}
+
+.letter-paper::after {
+
+    content: "💕";
+
+    position: absolute;
+
+    bottom: 15px;
+
+    right: 20px;
+
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   REASONS SECTION
+===================================================== */
+
+.reasons-section {
+
+    max-width: 750px;
+
+    margin:
+        60px auto;
+
+    padding:
+        35px 25px;
+
+    background:
+        rgba(255,255,255,0.20);
+
+    border-radius: 30px;
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,50,100,0.2);
+}
+
+.reasons-section h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.reasons-subtitle {
+
+    font-size: 16px;
+
+    opacity: 0.9;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   REASON HEART BUTTON
+===================================================== */
+
+#reasonBtn {
+
+    width: 100px;
+
+    height: 100px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff4b2b
+        );
+
+    color: white;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,50,100,0.4);
+
+    animation:
+        heartbeat 1.5s infinite;
+
+    transition:
+        transform 0.3s;
+}
+
+#reasonBtn:hover {
+
+    transform:
+        scale(1.15);
+}
+
+
+/* =====================================================
+   REASON TEXT
+===================================================== */
+
+#reasonText {
+
+    min-height: 75px;
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    background:
+        rgba(255,255,255,0.3);
+
+    border-radius: 20px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.6;
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+#reasonText.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================================
+   SECRET MESSAGE
+===================================================== */
+
+.secret-section {
+
+    margin:
+        60px auto;
+
+    max-width: 650px;
+}
+
+.secret-heart {
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+    animation:
+        heartbeat 2s infinite;
+
+    transition:
+        transform 0.3s;
+}
+
+.secret-heart:hover {
+
+    transform:
+        scale(1.25);
+}
+
+.secret-message {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        all 0.7s ease;
+
+    margin-top: 10px;
+
+    font-size: 19px;
+
+    font-weight: bold;
+}
+
+.secret-message.show {
+
+    max-height: 150px;
+
+    opacity: 1;
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   SURPRISE QUESTION
+===================================================== */
+
+.question-box {
+
+    margin:
+        60px auto 20px;
+
+    max-width: 750px;
+
+    padding: 35px;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    border-radius: 30px;
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,50,100,0.25);
+}
+
+.question-box h2 {
+
+    margin-top: 0;
+
+    font-size: 27px;
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.button-area {
+
+    position: relative;
+
+    height: 150px;
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   YES BUTTON
+===================================================== */
 
 #yesBtn {
-    left: 10%;
-    top: 40%;
-    background-color: #4CAF50;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 20px;
+
+    transform:
+        translateX(-110%);
+
+    padding:
+        16px 25px;
+
+    font-size: 17px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff4b2b
+        );
+
     color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(255,50,100,0.3);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
 }
 
-#noBtn {
-    left: 10%;
-    top: 70%;
-    background-color: #f44336;
-    color: white;
+#yesBtn:hover {
+
+    transform:
+        translateX(-110%)
+        scale(1.08);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,50,100,0.5);
 }
+
+
+/* =====================================================
+   NO BUTTON
+===================================================== */
+
+#noBtn {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 20px;
+
+    transform:
+        translateX(20%);
+
+    padding:
+        16px 25px;
+
+    font-size: 17px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #555,
+            #222
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    opacity: 0.7;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation:
+        floatHeart linear infinite;
+}
+
+.heart:nth-of-type(1) {
+
+    left: 10%;
+
+    animation-duration: 7s;
+}
+
+.heart:nth-of-type(2) {
+
+    left: 25%;
+
+    animation-duration: 9s;
+}
+
+.heart:nth-of-type(3) {
+
+    left: 45%;
+
+    animation-duration: 6s;
+}
+
+.heart:nth-of-type(4) {
+
+    left: 65%;
+
+    animation-duration: 8s;
+}
+
+.heart:nth-of-type(5) {
+
+    left: 85%;
+
+    animation-duration: 10s;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+
+        opacity: 0.8;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.05);
+    }
+}
+
+@keyframes sparkleAnimation {
+
+    0%, 100% {
+
+        opacity: 0.2;
+
+        transform:
+            scale(0.7)
+            rotate(0deg);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.3)
+            rotate(180deg);
+    }
+}
+
+@keyframes lightboxOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.7);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+
+        padding-top: 30px;
+    }
+
+    h1 {
+
+        font-size: 35px;
+    }
+
+    .main-subtitle {
+
+        font-size: 19px;
+    }
+
+    .photo-gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .letter-section {
+
+        padding: 20px;
+    }
+
+    .letter-paper {
+
+        padding:
+            35px 25px;
+    }
+
+    .letter-paper p {
+
+        font-size: 15px;
+    }
+
+    .reasons-section {
+
+        padding:
+            25px 18px;
+    }
+
+    #reasonText {
+
+        font-size: 17px;
+    }
+
+    .question-box {
+
+        padding: 25px 18px;
+    }
+
+    .button-area {
+
+        height: 190px;
+    }
+
+    #yesBtn {
+
+        left: 50%;
+
+        top: 10px;
+
+        transform:
+            translateX(-50%);
+    }
+
+    #yesBtn:hover {
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+    }
+
+    #noBtn {
+
+        left: 50%;
+
+        top: 100px;
+
+        transform:
+            translateX(-50%);
+    }
+
+    .secret-heart {
+
+        font-size: 40px;
+    }
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<h1>Happy Birthday Bebb 🎂</h1>
-<h2>Do you want to see your birthday surprise? 🎂</h2>
 
-<img src="photo.jpg" alt="Our Memory ❤️">
+<!-- =====================================================
+     FLOATING HEARTS
+===================================================== -->
 
-<button id="yesBtn">YES YOU WANT💖 I KNOW THAT YOU WANT</button>
-<button id="noBtn">DONT CLICK NO 😜 NO WAY, HOW DARE YOU</button>
+<div class="heart">❤️</div>
+<div class="heart">💗</div>
+<div class="heart">💕</div>
+<div class="heart">💖</div>
+<div class="heart">💗</div>
+
+
+<!-- =====================================================
+     SPARKLES
+===================================================== -->
+
+<div class="sparkle sparkle1">✨</div>
+<div class="sparkle sparkle2">✨</div>
+<div class="sparkle sparkle3">⭐</div>
+<div class="sparkle sparkle4">✨</div>
+
+
+<!-- =====================================================
+     PHOTO LIGHTBOX
+===================================================== -->
+
+<div id="lightbox">
+
+    <div id="closeLightbox">
+        ×
+    </div>
+
+    <img id="lightboxImage"
+         src=""
+         alt="Memory">
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="container">
+
+
+    <!-- =================================================
+         TITLE
+    ================================================== -->
+
+    <h1>
+        Happy Birthday Bebb 🎂❤️
+    </h1>
+
+
+    <div class="main-subtitle">
+
+        To the cutest person ever 💕
+
+    </div>
+
+
+    <div class="small-text">
+
+        ✨ A little something special just for you ✨
+
+    </div>
+
+
+    <!-- =================================================
+         PHOTO GALLERY
+    ================================================== -->
+
+    <div class="photo-gallery">
+
+
+        <div class="photo-card">
+
+            <img
+                src="photo.jpg"
+                alt="Our Memory ❤️"
+            >
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+                src="photo2.jpg"
+                alt="Our Memory ❤️"
+            >
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+                src="photo3.jpg"
+                alt="Our Memory ❤️"
+            >
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+                src="photo4.jpg"
+                alt="Our Memory ❤️"
+            >
+
+        </div>
+
+
+    </div>
+
+
+    <div class="photo-hint">
+
+        📸 Click a photo to see it bigger ❤️
+
+    </div>
+
+
+    <!-- =================================================
+         LETTER
+    ================================================== -->
+
+    <div class="letter-section">
+
+
+        <div class="letter-title">
+
+            💌 I Have Something To Tell You...
+
+        </div>
+
+
+        <button id="openLetterBtn">
+
+            💌 Open Your Birthday Letter
+
+        </button>
+
+
+        <div id="letter"
+             class="letter">
+
+
+            <div class="letter-paper">
+
+
+                <h2>
+
+                    To My Bebb ❤️
+
+                </h2>
+
+
+                <p>
+
+                    Happy Birthday to the most special
+                    person in my life. 🎂❤️
+
+                </p>
+
+
+                <p>
+
+                    I hope today brings you as much
+                    happiness as you bring into my life.
+
+                </p>
+
+
+                <p>
+
+                    Thank you for all the memories,
+                    laughs, and little moments we've
+                    shared together. 🥰
+
+                </p>
+
+
+                <p>
+
+                    I hope we can create many more
+                    beautiful memories together.
+
+                </p>
+
+
+                <p>
+
+                    No matter how many birthdays come
+                    and go, I hope I can continue to
+                    celebrate them with you. ❤️
+
+                </p>
+
+
+                <p>
+
+                    Once again...
+
+                </p>
+
+
+                <h2>
+
+                    Happy Birthday Bebb! 🎂💕
+
+                </h2>
+
+
+                <p style="text-align:center;">
+
+                    ❤️ From someone who loves you
+                    very much.
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         REASONS
+    ================================================== -->
+
+    <div class="reasons-section">
+
+
+        <h2>
+
+            💕 Why Are You So Special?
+
+        </h2>
+
+
+        <p class="reasons-subtitle">
+
+            Maybe you already know...
+            but let me remind you ❤️
+
+        </p>
+
+
+        <button id="reasonBtn">
+
+            ❤️
+
+        </button>
+
+
+        <div id="reasonText">
+
+            Click the heart... 🥺
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         SECRET MESSAGE
+    ================================================== -->
+
+    <div class="secret-section">
+
+
+        <p>
+
+            🤫 Psst... there's a secret here.
+
+        </p>
+
+
+        <button
+            class="secret-heart"
+            id="secretHeart"
+        >
+
+            💗
+
+        </button>
+
+
+        <div
+            id="secretMessage"
+            class="secret-message"
+        >
+
+            You found the secret! 🥺❤️
+
+            <br><br>
+
+            Bubu loves Bebebb more than
+            Bebebb probably knows. 💕
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         SURPRISE QUESTION
+    ================================================== -->
+
+    <div class="question-box">
+
+
+        <h2>
+
+            🎁 Ready for your REAL surprise?
+
+        </h2>
+
+
+        <p>
+
+            Do you want to see your birthday
+            surprise? ❤️
+
+        </p>
+
+
+        <div class="button-area">
+
+
+            <button id="yesBtn">
+
+                YES YOU WANT 💖
+
+                <br>
+
+                I KNOW YOU WANT 😏
+
+            </button>
+
+
+            <button id="noBtn">
+
+                DON'T CLICK NO 😜
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
 
 <script>
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+const openLetterBtn =
+    document.getElementById(
+        "openLetterBtn"
+    );
+
+const letter =
+    document.getElementById(
+        "letter"
+    );
+
+
+openLetterBtn.addEventListener(
+    "click",
+    () => {
+
+        letter.classList.toggle(
+            "show"
+        );
+
+
+        if (
+            letter.classList.contains(
+                "show"
+            )
+        ) {
+
+            openLetterBtn.innerText =
+                "💌 Close Your Letter";
+
+        }
+
+        else {
+
+            openLetterBtn.innerText =
+                "💌 Open Your Birthday Letter";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PHOTO LIGHTBOX
+===================================================== */
+
+const photoCards =
+    document.querySelectorAll(
+        ".photo-card"
+    );
+
+const lightbox =
+    document.getElementById(
+        "lightbox"
+    );
+
+const lightboxImage =
+    document.getElementById(
+        "lightboxImage"
+    );
+
+
+photoCards.forEach(
+    card => {
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                const image =
+                    card.querySelector(
+                        "img"
+                    );
+
+                lightboxImage.src =
+                    image.src;
+
+                lightbox.style.display =
+                    "flex";
+
+            }
+        );
+
+    }
+);
+
+
+lightbox.addEventListener(
+    "click",
+    () => {
+
+        lightbox.style.display =
+            "none";
+
+    }
+);
+
+
+/* =====================================================
+   REASONS
+===================================================== */
+
+const reasonBtn =
+    document.getElementById(
+        "reasonBtn"
+    );
+
+const reasonText =
+    document.getElementById(
+        "reasonText"
+    );
+
+
+const reasons = [
+
+    "Because your smile can make my day better. ❤️",
+
+    "Because talking to you never gets boring. 🥰",
+
+    "Because you somehow became someone very important to me. 💕",
+
+    "Because you make ordinary moments feel special. ✨",
+
+    "Because you always have a way of making me laugh. 😂❤️",
+
+    "Because I love the way you care about the people around you. 🥺",
+
+    "Because even your annoying side is somehow cute. 😜",
+
+    "Because I can be myself when I'm with you. ❤️",
+
+    "Because I'm really grateful that I got to know you. 💗",
+
+    "Because you're simply... YOU. And that's enough. ❤️"
+
+];
+
+
+let reasonIndex = 0;
+
+
+reasonBtn.addEventListener(
+    "click",
+    () => {
+
+        reasonText.classList.remove(
+            "show"
+        );
+
+
+        setTimeout(
+            () => {
+
+                reasonText.innerText =
+                    reasons[reasonIndex];
+
+                reasonText.classList.add(
+                    "show"
+                );
+
+
+                reasonIndex++;
+
+
+                if (
+                    reasonIndex >=
+                    reasons.length
+                ) {
+
+                    reasonIndex = 0;
+
+                }
+
+            },
+            200
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SECRET HEART
+===================================================== */
+
+const secretHeart =
+    document.getElementById(
+        "secretHeart"
+    );
+
+const secretMessage =
+    document.getElementById(
+        "secretMessage"
+    );
+
+
+secretHeart.addEventListener(
+    "click",
+    () => {
+
+        secretMessage.classList.toggle(
+            "show"
+        );
+
+        if (
+            secretMessage.classList.contains(
+                "show"
+            )
+        ) {
+
+            secretHeart.innerText =
+                "💖";
+
+        }
+
+        else {
+
+            secretHeart.innerText =
+                "💗";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   NO BUTTON
+===================================================== */
+
 let noClickCount = 0;
 
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
+const noBtn =
+    document.getElementById(
+        "noBtn"
+    );
 
-// Move NO button when hover
-noBtn.addEventListener("mouseover", () => {
-    if (noClickCount < 3) {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 100);
+const yesBtn =
+    document.getElementById(
+        "yesBtn"
+    );
 
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
+
+function moveNoButton() {
+
+    if (noClickCount < 5) {
+
+
+        const buttonWidth =
+            noBtn.offsetWidth;
+
+        const buttonHeight =
+            noBtn.offsetHeight;
+
+
+        const padding = 20;
+
+
+        const maxX =
+            window.innerWidth
+            - buttonWidth
+            - padding;
+
+
+        const maxY =
+            window.innerHeight
+            - buttonHeight
+            - padding;
+
+
+        const x =
+            Math.max(
+                padding,
+                Math.random() * maxX
+            );
+
+
+        const y =
+            Math.max(
+                padding,
+                Math.random() * maxY
+            );
+
+
+        noBtn.style.position =
+            "fixed";
+
+
+        noBtn.style.left =
+            x + "px";
+
+
+        noBtn.style.top =
+            y + "px";
+
+
+        noBtn.style.transform =
+            "none";
+
+
+        noBtn.style.zIndex =
+            "999";
+
 
         noClickCount++;
-    } else {
-        noBtn.innerText = "Okay okay...cuba la ni click YES";
-    }
-});
 
-// YES button click → go to video page
-yesBtn.addEventListener("click", () => {
-    window.location.href = "video.html";
-});
+
+    }
+
+    else {
+
+
+        noBtn.innerText =
+            "HEHE 😜 CLICK YES LAH ❤️";
+
+
+    }
+
+}
+
+
+/* Desktop */
+
+noBtn.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
+
+
+/* Mobile */
+
+noBtn.addEventListener(
+    "touchstart",
+    event => {
+
+        event.preventDefault();
+
+        moveNoButton();
+
+    }
+);
+
+
+/* =====================================================
+   YES BUTTON
+===================================================== */
+
+yesBtn.addEventListener(
+    "click",
+    () => {
+
+        createMiniCelebration();
+
+
+        setTimeout(
+            () => {
+
+                window.location.href =
+                    "video.html";
+
+            },
+            900
+        );
+
+    }
+);
+
+
+/* =====================================================
+   MINI CELEBRATION
+===================================================== */
+
+function createMiniCelebration() {
+
+
+    const emojis = [
+        "❤️",
+        "💕",
+        "💖",
+        "✨",
+        "🎉"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 20;
+        i++
+    ) {
+
+
+        const item =
+            document.createElement(
+                "div"
+            );
+
+
+        item.innerText =
+            emojis[
+                Math.floor(
+                    Math.random()
+                    * emojis.length
+                )
+            ];
+
+
+        item.style.position =
+            "fixed";
+
+
+        item.style.left =
+            Math.random() * 100
+            + "vw";
+
+
+        item.style.top =
+            Math.random() * 100
+            + "vh";
+
+
+        item.style.fontSize =
+            "25px";
+
+
+        item.style.zIndex =
+            "2000";
+
+
+        item.style.pointerEvents =
+            "none";
+
+
+        item.style.transition =
+            "all 0.8s ease";
+
+
+        document.body.appendChild(
+            item
+        );
+
+
+        setTimeout(
+            () => {
+
+                item.style.transform =
+                    "translateY(-100px) scale(1.5)";
+
+                item.style.opacity =
+                    "0";
+
+            },
+            50
+        );
+
+
+        setTimeout(
+            () => {
+
+                item.remove();
+
+            },
+            1000
+        );
+
+    }
+
+}
+
 </script>
 
 </body>
+
 </html>

@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Bebebb ❤️</title>
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #ffd6df,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            #ffc2d1,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #ff758c,
+            #ff7eb3,
+            #fad0c4
+        );
+
+    color: white;
+
+    text-align: center;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   INTRO SCREEN
+===================================================== */
+
+#intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffb6c8,
+            #ff758c,
+            #ff4f7b
+        );
+
+    transition:
+        opacity 1s ease;
+}
+
+.intro-heart {
+
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+#intro h1 {
+
+    font-size: 50px;
+
+    margin: 0 0 15px;
+
+    text-shadow:
+        0 5px 20px
+        rgba(100,0,40,0.25);
+}
+
+#intro p {
+
+    font-size: 20px;
+
+    margin: 0 0 35px;
+}
+
+#startBtn {
+
+    padding:
+        18px 35px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: #ff4f7b;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,0.2);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+#startBtn:hover {
+
+    transform:
+        scale(1.1);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.3);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+#mainContent {
+
+    display: none;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        50px 20px 120px;
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-wrapper {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+#countdown {
+
+    font-size: 100px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 5px 25px
+        rgba(255,255,255,0.6);
+
+    animation:
+        countdownAnimation 1s ease;
+}
+
+.countdown-text {
+
+    font-size: 23px;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+#videoSection {
+
+    display: none;
+
+    max-width: 950px;
+
+    margin:
+        0 auto;
+}
+
+.video-title {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+
+    animation:
+        heartbeat 2s infinite;
+
+    text-shadow:
+        0 4px 15px
+        rgba(100,0,40,0.2);
+}
+
+.video-subtitle {
+
+    font-size: 18px;
+
+    margin-bottom: 30px;
+
+    opacity: 0.9;
+}
+
+.video-container {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 10px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.3);
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(100,0,40,0.3);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+}
+
+video {
+
+    width: 100%;
+
+    display: block;
+
+    border-radius: 20px;
+
+    background: #000;
+}
+
+
+/* =====================================================
+   AFTER VIDEO MESSAGE
+===================================================== */
+
+#messageSection {
+
+    display: none;
+
+    max-width: 850px;
+
+    margin:
+        70px auto 0;
+
+    padding:
+        40px 45px;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100,0,40,0.25);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+}
+
+.message-title {
+
+    font-size: 42px;
+
+    margin-bottom: 35px;
+
+    animation:
+        heartbeat 2s infinite;
+}
+
+#typedMessage {
+
+    min-height: 400px;
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    text-align: left;
+
+    white-space: pre-line;
+
+    color: white;
+
+    text-shadow:
+        0 2px 5px
+        rgba(80,0,30,0.15);
+}
+
+
+/* =====================================================
+   FINAL HEART
+===================================================== */
+
+#finalHeart {
+
+    display: none;
+
+    margin-top: 40px;
+
+    font-size: 80px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+.final-line {
+
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   REPLAY BUTTON
+===================================================== */
+
+#replayBtn {
+
+    display: none;
+
+    margin-top: 35px;
+
+    padding:
+        15px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: #ff4f7b;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.2);
+
+    transition:
+        transform 0.3s;
+}
+
+#replayBtn:hover {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    z-index: 2;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation:
+        floatHeart linear infinite;
+}
+
+.heart:nth-of-type(1) {
+
+    left: 5%;
+
+    animation-duration: 7s;
+}
+
+.heart:nth-of-type(2) {
+
+    left: 20%;
+
+    animation-duration: 9s;
+}
+
+.heart:nth-of-type(3) {
+
+    left: 40%;
+
+    animation-duration: 6s;
+}
+
+.heart:nth-of-type(4) {
+
+    left: 60%;
+
+    animation-duration: 8s;
+}
+
+.heart:nth-of-type(5) {
+
+    left: 80%;
+
+    animation-duration: 10s;
+}
+
+.heart:nth-of-type(6) {
+
+    left: 95%;
+
+    animation-duration: 7s;
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    z-index: 200;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes heartbeat {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+    }
+}
+
+@keyframes countdownAnimation {
+
+    0% {
+
+        transform:
+            scale(2);
+
+        opacity: 0;
+    }
+
+    50% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(0.8);
+
+        opacity: 0;
+    }
+}
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+
+        opacity: 0.8;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+@keyframes confettiFall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    #intro h1 {
+
+        font-size: 35px;
+    }
+
+    #intro p {
+
+        font-size: 17px;
+    }
+
+    .intro-heart {
+
+        font-size: 55px;
+    }
+
+    #countdown {
+
+        font-size: 70px;
+    }
+
+    .countdown-text {
+
+        font-size: 18px;
+    }
+
+    .video-title {
+
+        font-size: 29px;
+    }
+
+    .video-subtitle {
+
+        font-size: 15px;
+    }
+
+    #messageSection {
+
+        padding:
+            30px 22px;
+    }
+
+    .message-title {
+
+        font-size: 30px;
+    }
+
+    #typedMessage {
+
+        font-size: 17px;
+
+        line-height: 1.8;
+    }
+
+    #finalHeart {
+
+        font-size: 65px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FLOATING HEARTS
+===================================================== -->
+
+<div class="heart">❤️</div>
+<div class="heart">💕</div>
+<div class="heart">💗</div>
+<div class="heart">💖</div>
+<div class="heart">💞</div>
+<div class="heart">❤️</div>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-heart">
+        🎁
+    </div>
+
+    <h1>
+        Something Special For You ❤️
+    </h1>
+
+    <p>
+        Are you ready, Bebebb? 🥺💕
+    </p>
+
+    <button id="startBtn">
+        Open Your Surprise 💖
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<div id="mainContent">
+
+
+    <!-- =================================================
+         COUNTDOWN
+    ================================================== -->
+
+    <div
+        class="countdown-wrapper"
+        id="countdownWrapper"
+    >
+
+        <div id="countdown">
+            3
+        </div>
+
+        <div class="countdown-text">
+            Get ready, Bebebb... ❤️
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         VIDEO
+    ================================================== -->
+
+    <div id="videoSection">
+
+        <div class="video-title">
+            🎂 Happy Birthday, Bebebb ❤️
+        </div>
+
+        <div class="video-subtitle">
+            I made something special for you... 🥺💕
+        </div>
+
+
+        <div class="video-container">
+
+            <video
+                id="birthdayVideo"
+                controls
+                playsinline
+            >
+
+                <source
+                    src="birthday.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                the video element.
+
+            </video>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FINAL MESSAGE
+    ================================================== -->
+
+    <div id="messageSection">
+
+        <div class="message-title">
+            ❤️ For My Bebebb
+        </div>
+
+
+        <div id="typedMessage"></div>
+
+
+        <div id="finalHeart">
+            ❤️
+        </div>
+
+
+        <div
+            id="finalLine"
+            class="final-line"
+        >
+            Happy Birthday, Bebebb. 🎂❤️
+        </div>
+
+
+        <button id="replayBtn">
+            🔄 Replay Surprise
+        </button>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const intro =
+    document.getElementById("intro");
+
+const startBtn =
+    document.getElementById("startBtn");
+
+const mainContent =
+    document.getElementById("mainContent");
+
+const countdown =
+    document.getElementById("countdown");
+
+const countdownWrapper =
+    document.getElementById("countdownWrapper");
+
+const videoSection =
+    document.getElementById("videoSection");
+
+const birthdayVideo =
+    document.getElementById("birthdayVideo");
+
+const messageSection =
+    document.getElementById("messageSection");
+
+const typedMessage =
+    document.getElementById("typedMessage");
+
+const finalHeart =
+    document.getElementById("finalHeart");
+
+const replayBtn =
+    document.getElementById("replayBtn");
+
+
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+const message =
+
+`Hello Bebebb ❤️
+
+This is our first year knowing each other, and somehow, it started on your birthday. 🥺❤️
+
+Happy Birthday, Bebebb! 🎂💕
+
+Thank you for being my friend, for staying by my side, and for loving me.
+
+Thank you for accepting me even when I'm not always the best version of myself.
+
+I know sometimes Bubu can be kasar, annoying, stubborn, or maybe make you feel sad without me realizing it.
+
+I'm really sorry, Bebebb. 🥺
+
+I may not always know how to express my feelings properly, but I want you to know that you mean a lot to me.
+
+I'm really happy that I got to know you.
+
+I'm grateful for every little moment, every laugh, every conversation, every late-night talk, and every memory we've made together. ❤️
+
+Sometimes I think about how funny it is that we met, and somehow you became such an important person in my life.
+
+Since this is our first year knowing each other, I hope it won't be the last.
+
+I hope we get to celebrate many more birthdays together.
+
+I hope we can create many more memories, laugh at stupid things, annoy each other, and stay by each other's side. 🥰
+
+I hope your birthday is filled with happiness, laughter, love, and everything you deserve.
+
+And whenever life gets difficult, I hope you remember that you don't have to face everything alone.
+
+I'm really grateful that you came into my life, Bebebb.
+
+Thank you for being you.
+
+Thank you for being part of my life.
+
+And most importantly...
+
+Happy Birthday, my Bebebb. 🎂❤️
+
+I hope this little surprise makes you smile.
+
+Love,
+
+Bubu ❤️`;
+
+
+/* =====================================================
+   START SURPRISE
+===================================================== */
+
+startBtn.addEventListener(
+    "click",
+    () => {
+
+        intro.style.opacity = "0";
+
+        setTimeout(
+            () => {
+
+                intro.style.display = "none";
+
+                mainContent.style.display =
+                    "block";
+
+                startCountdown();
+
+            },
+            1000
+        );
+
+    }
+);
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+function startCountdown() {
+
+    let number = 3;
+
+    countdown.innerText = number;
+
+    countdown.style.animation =
+        "countdownAnimation 1s ease";
+
+
+    const timer =
+        setInterval(
+            () => {
+
+                number--;
+
+
+                if (number > 0) {
+
+                    countdown.innerText =
+                        number;
+
+                    countdown.style.animation =
+                        "none";
+
+                    void countdown.offsetWidth;
+
+                    countdown.style.animation =
+                        "countdownAnimation 1s ease";
+
+                }
+
+
+                else {
+
+                    clearInterval(timer);
+
+                    countdown.innerText =
+                        "❤️";
+
+                    countdown.style.animation =
+                        "heartbeat 1s infinite";
+
+
+                    setTimeout(
+                        () => {
+
+                            countdownWrapper.style.display =
+                                "none";
+
+                            showVideo();
+
+                        },
+                        1000
+                    );
+
+                }
+
+            },
+            1000
+        );
+}
+
+
+/* =====================================================
+   SHOW VIDEO
+===================================================== */
+
+function showVideo() {
+
+    videoSection.style.display =
+        "block";
+
+    videoSection.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =====================================================
+   VIDEO FINISHED
+===================================================== */
+
+birthdayVideo.addEventListener(
+    "ended",
+    () => {
+
+        createConfetti();
+
+        setTimeout(
+            () => {
+
+                showMessage();
+
+            },
+            1200
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SHOW MESSAGE
+===================================================== */
+
+function showMessage() {
+
+    messageSection.style.display =
+        "block";
+
+    messageSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    typeMessage();
+
+}
+
+
+/* =====================================================
+   TYPEWRITER
+===================================================== */
+
+function typeMessage() {
+
+    let index = 0;
+
+    typedMessage.innerHTML = "";
+
+    finalHeart.style.display =
+        "none";
+
+    replayBtn.style.display =
+        "none";
+
+
+    const speed = 32;
+
+
+    function type() {
+
+        if (index < message.length) {
+
+            typedMessage.innerHTML +=
+                message.charAt(index);
+
+            index++;
+
+            setTimeout(
+                type,
+                speed
+            );
+
+        }
+
+        else {
+
+            setTimeout(
+                () => {
+
+                    finalHeart.style.display =
+                        "block";
+
+                    replayBtn.style.display =
+                        "inline-block";
+
+                    createConfetti();
+
+                },
+                700
+            );
+
+        }
+
+    }
+
+
+    type();
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti() {
+
+    const emojis = [
+        "❤️",
+        "💕",
+        "💖",
+        "💗",
+        "🎉",
+        "✨",
+        "🎂",
+        "🥰"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        const confetti =
+            document.createElement("div");
+
+
+        confetti.classList.add(
+            "confetti"
+        );
+
+
+        confetti.innerText =
+            emojis[
+                Math.floor(
+                    Math.random()
+                    * emojis.length
+                )
+            ];
+
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+
+        confetti.style.animationDuration =
+            (3 + Math.random() * 4)
+            + "s";
+
+
+        confetti.style.fontSize =
+            (15 + Math.random() * 20)
+            + "px";
+
+
+        document.body.appendChild(
+            confetti
+        );
+
+
+        setTimeout(
+            () => {
+
+                confetti.remove();
+
+            },
+            7000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   REPLAY
+===================================================== */
+
+replayBtn.addEventListener(
+    "click",
+    () => {
+
+        birthdayVideo.pause();
+
+        birthdayVideo.currentTime = 0;
+
+        messageSection.style.display =
+            "none";
+
+        videoSection.style.display =
+            "none";
+
+        mainContent.style.display =
+            "block";
+
+        countdownWrapper.style.display =
+            "flex";
+
+        countdown.innerText =
+            "3";
+
+        typedMessage.innerHTML =
+            "";
+
+        finalHeart.style.display =
+            "none";
+
+        replayBtn.style.display =
+            "none";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        setTimeout(
+            () => {
+
+                startCountdown();
+
+            },
+            500
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
