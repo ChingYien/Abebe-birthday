@@ -169,7 +169,7 @@ body {
     min-height: 100vh;
 
     padding:
-        50px 20px 120px;
+        15px 20px 80px;
 }
 
 
@@ -220,17 +220,20 @@ body {
 
     display: none;
 
-    max-width: 950px;
+    width: 100%;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
+
+    padding:
+        10px 15px 25px;
 }
 
 .video-title {
 
-    font-size: 42px;
+    font-size: 32px;
 
-    margin-bottom: 10px;
+    margin:
+        0 0 6px;
 
     animation:
         heartbeat 2s infinite;
@@ -242,51 +245,102 @@ body {
 
 .video-subtitle {
 
-    font-size: 18px;
+    font-size: 16px;
 
-    margin-bottom: 30px;
+    margin:
+        0 0 12px;
 
     opacity: 0.9;
 }
+
+
+/* =====================================================
+   VIDEO FRAME
+===================================================== */
 
 .video-container {
 
     position: relative;
 
-    width: 100%;
+    height:
+        min(72vh, 720px);
 
-    max-width: 850px;
+    aspect-ratio:
+        9 / 16;
 
-    margin: auto;
+    width: auto;
 
-    padding: 10px;
+    max-width:
+        92vw;
 
-    border-radius: 28px;
+    margin:
+        0 auto;
+
+    padding:
+        7px;
+
+    border-radius:
+        25px;
 
     background:
-        rgba(255,255,255,0.3);
+        rgba(
+            255,
+            255,
+            255,
+            0.32
+        );
 
     backdrop-filter:
         blur(12px);
 
     box-shadow:
-        0 25px 70px
-        rgba(100,0,40,0.3);
+        0 15px 45px
+        rgba(
+            100,
+            0,
+            40,
+            0.25
+        );
 
     border:
         1px solid
-        rgba(255,255,255,0.4);
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+    overflow:
+        hidden;
 }
 
-video {
 
-    width: 100%;
+/* =====================================================
+   VIDEO ITSELF
+===================================================== */
+
+.video-container video {
 
     display: block;
 
-    border-radius: 20px;
+    width:
+        100%;
 
-    background: #000;
+    height:
+        100%;
+
+    border-radius:
+        18px;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center;
+
+    background:
+        transparent;
 }
 
 
@@ -298,7 +352,8 @@ video {
 
     display: none;
 
-    max-width: 850px;
+    max-width:
+        850px;
 
     margin:
         70px auto 0;
@@ -307,27 +362,45 @@ video {
         40px 45px;
 
     background:
-        rgba(255,255,255,0.25);
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
 
     backdrop-filter:
         blur(15px);
 
-    border-radius: 35px;
+    border-radius:
+        35px;
 
     box-shadow:
         0 20px 60px
-        rgba(100,0,40,0.25);
+        rgba(
+            100,
+            0,
+            40,
+            0.25
+        );
 
     border:
         1px solid
-        rgba(255,255,255,0.35);
+        rgba(
+            255,
+            255,
+            255,
+            0.35
+        );
 }
 
 .message-title {
 
-    font-size: 42px;
+    font-size:
+        42px;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        35px;
 
     animation:
         heartbeat 2s infinite;
@@ -335,21 +408,32 @@ video {
 
 #typedMessage {
 
-    min-height: 400px;
+    min-height:
+        400px;
 
-    font-size: 19px;
+    font-size:
+        19px;
 
-    line-height: 2;
+    line-height:
+        2;
 
-    text-align: left;
+    text-align:
+        left;
 
-    white-space: pre-line;
+    white-space:
+        pre-line;
 
-    color: white;
+    color:
+        white;
 
     text-shadow:
         0 2px 5px
-        rgba(80,0,30,0.15);
+        rgba(
+            80,
+            0,
+            30,
+            0.15
+        );
 }
 
 
@@ -361,9 +445,11 @@ video {
 
     display: none;
 
-    margin-top: 40px;
+    margin-top:
+        40px;
 
-    font-size: 80px;
+    font-size:
+        80px;
 
     animation:
         heartbeat 1.2s infinite;
@@ -376,11 +462,14 @@ video {
 
 .final-line {
 
-    margin-top: 25px;
+    margin-top:
+        25px;
 
-    font-size: 25px;
+    font-size:
+        25px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 }
 
 
@@ -390,30 +479,44 @@ video {
 
 #replayBtn {
 
-    display: none;
+    display:
+        none;
 
-    margin-top: 35px;
+    margin-top:
+        35px;
 
     padding:
         15px 30px;
 
-    border: none;
+    border:
+        none;
 
-    border-radius: 50px;
+    border-radius:
+        50px;
 
-    background: white;
+    background:
+        white;
 
-    color: #ff4f7b;
+    color:
+        #ff4f7b;
 
-    font-size: 17px;
+    font-size:
+        17px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     box-shadow:
         0 8px 25px
-        rgba(0,0,0,0.2);
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
 
     transition:
         transform 0.3s;
@@ -432,60 +535,79 @@ video {
 
 .heart {
 
-    position: fixed;
+    position:
+        fixed;
 
-    bottom: -50px;
+    bottom:
+        -50px;
 
-    z-index: 2;
+    z-index:
+        2;
 
-    font-size: 25px;
+    font-size:
+        25px;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
     animation:
-        floatHeart linear infinite;
+        floatHeart
+        linear
+        infinite;
 }
 
 .heart:nth-of-type(1) {
 
-    left: 5%;
+    left:
+        5%;
 
-    animation-duration: 7s;
+    animation-duration:
+        7s;
 }
 
 .heart:nth-of-type(2) {
 
-    left: 20%;
+    left:
+        20%;
 
-    animation-duration: 9s;
+    animation-duration:
+        9s;
 }
 
 .heart:nth-of-type(3) {
 
-    left: 40%;
+    left:
+        40%;
 
-    animation-duration: 6s;
+    animation-duration:
+        6s;
 }
 
 .heart:nth-of-type(4) {
 
-    left: 60%;
+    left:
+        60%;
 
-    animation-duration: 8s;
+    animation-duration:
+        8s;
 }
 
 .heart:nth-of-type(5) {
 
-    left: 80%;
+    left:
+        80%;
 
-    animation-duration: 10s;
+    animation-duration:
+        10s;
 }
 
 .heart:nth-of-type(6) {
 
-    left: 95%;
+    left:
+        95%;
 
-    animation-duration: 7s;
+    animation-duration:
+        7s;
 }
 
 
@@ -495,18 +617,25 @@ video {
 
 .confetti {
 
-    position: fixed;
+    position:
+        fixed;
 
-    top: -20px;
+    top:
+        -20px;
 
-    z-index: 200;
+    z-index:
+        200;
 
-    font-size: 25px;
+    font-size:
+        25px;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
     animation:
-        confettiFall linear forwards;
+        confettiFall
+        linear
+        forwards;
 }
 
 
@@ -516,7 +645,8 @@ video {
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0%,
+    100% {
 
         transform:
             scale(1);
@@ -536,7 +666,8 @@ video {
         transform:
             scale(2);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 
     50% {
@@ -544,7 +675,8 @@ video {
         transform:
             scale(1);
 
-        opacity: 1;
+        opacity:
+            1;
     }
 
     100% {
@@ -552,7 +684,8 @@ video {
         transform:
             scale(0.8);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 }
 
@@ -564,12 +697,14 @@ video {
             translateY(0)
             rotate(0deg);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 
     20% {
 
-        opacity: 0.8;
+        opacity:
+            0.8;
     }
 
     100% {
@@ -578,7 +713,8 @@ video {
             translateY(-110vh)
             rotate(360deg);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 }
 
@@ -590,7 +726,8 @@ video {
             translateY(0)
             rotate(0deg);
 
-        opacity: 1;
+        opacity:
+            1;
     }
 
     100% {
@@ -599,7 +736,8 @@ video {
             translateY(110vh)
             rotate(720deg);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 }
 
@@ -612,38 +750,109 @@ video {
 
     #intro h1 {
 
-        font-size: 35px;
+        font-size:
+            35px;
     }
 
     #intro p {
 
-        font-size: 17px;
+        font-size:
+            17px;
     }
 
     .intro-heart {
 
-        font-size: 55px;
+        font-size:
+            55px;
     }
 
     #countdown {
 
-        font-size: 70px;
+        font-size:
+            70px;
     }
 
     .countdown-text {
 
-        font-size: 18px;
+        font-size:
+            18px;
+    }
+
+
+    /* =====================
+       VIDEO
+    ===================== */
+
+    #videoSection {
+
+        width:
+            100%;
+
+        padding:
+            8px 10px 20px;
     }
 
     .video-title {
 
-        font-size: 29px;
+        font-size:
+            24px;
+
+        margin-bottom:
+            5px;
     }
 
     .video-subtitle {
 
-        font-size: 15px;
+        font-size:
+            14px;
+
+        margin-bottom:
+            10px;
     }
+
+    .video-container {
+
+        height:
+            68vh;
+
+        max-height:
+            620px;
+
+        max-width:
+            90vw;
+
+        aspect-ratio:
+            9 / 16;
+
+        padding:
+            5px;
+
+        border-radius:
+            20px;
+    }
+
+    .video-container video {
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+
+        object-position:
+            center;
+
+        border-radius:
+            15px;
+    }
+
+
+    /* =====================
+       MESSAGE
+    ===================== */
 
     #messageSection {
 
@@ -653,23 +862,28 @@ video {
 
     .message-title {
 
-        font-size: 30px;
+        font-size:
+            30px;
     }
 
     #typedMessage {
 
-        font-size: 17px;
+        font-size:
+            17px;
 
-        line-height: 1.8;
+        line-height:
+            1.8;
     }
 
     #finalHeart {
 
-        font-size: 65px;
+        font-size:
+            65px;
     }
 }
 
 </style>
+
 </head>
 
 
@@ -823,37 +1037,59 @@ video {
 ===================================================== */
 
 const intro =
-    document.getElementById("intro");
+    document.getElementById(
+        "intro"
+    );
 
 const startBtn =
-    document.getElementById("startBtn");
+    document.getElementById(
+        "startBtn"
+    );
 
 const mainContent =
-    document.getElementById("mainContent");
+    document.getElementById(
+        "mainContent"
+    );
 
 const countdown =
-    document.getElementById("countdown");
+    document.getElementById(
+        "countdown"
+    );
 
 const countdownWrapper =
-    document.getElementById("countdownWrapper");
+    document.getElementById(
+        "countdownWrapper"
+    );
 
 const videoSection =
-    document.getElementById("videoSection");
+    document.getElementById(
+        "videoSection"
+    );
 
 const birthdayVideo =
-    document.getElementById("birthdayVideo");
+    document.getElementById(
+        "birthdayVideo"
+    );
 
 const messageSection =
-    document.getElementById("messageSection");
+    document.getElementById(
+        "messageSection"
+    );
 
 const typedMessage =
-    document.getElementById("typedMessage");
+    document.getElementById(
+        "typedMessage"
+    );
 
 const finalHeart =
-    document.getElementById("finalHeart");
+    document.getElementById(
+        "finalHeart"
+    );
 
 const replayBtn =
-    document.getElementById("replayBtn");
+    document.getElementById(
+        "replayBtn"
+    );
 
 
 /* =====================================================
@@ -919,12 +1155,14 @@ startBtn.addEventListener(
     "click",
     () => {
 
-        intro.style.opacity = "0";
+        intro.style.opacity =
+            "0";
 
         setTimeout(
             () => {
 
-                intro.style.display = "none";
+                intro.style.display =
+                    "none";
 
                 mainContent.style.display =
                     "block";
@@ -945,9 +1183,11 @@ startBtn.addEventListener(
 
 function startCountdown() {
 
-    let number = 3;
+    let number =
+        3;
 
-    countdown.innerText = number;
+    countdown.innerText =
+        number;
 
     countdown.style.animation =
         "countdownAnimation 1s ease";
@@ -960,7 +1200,9 @@ function startCountdown() {
                 number--;
 
 
-                if (number > 0) {
+                if (
+                    number > 0
+                ) {
 
                     countdown.innerText =
                         number;
@@ -975,10 +1217,11 @@ function startCountdown() {
 
                 }
 
-
                 else {
 
-                    clearInterval(timer);
+                    clearInterval(
+                        timer
+                    );
 
                     countdown.innerText =
                         "❤️";
@@ -1008,7 +1251,7 @@ function startCountdown() {
 
 
 /* =====================================================
-   SHOW VIDEO
+   SHOW VIDEO + AUTOPLAY
 ===================================================== */
 
 function showVideo() {
@@ -1016,10 +1259,33 @@ function showVideo() {
     videoSection.style.display =
         "block";
 
+
     videoSection.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+
+        behavior:
+            "smooth",
+
+        block:
+            "center"
+
     });
+
+
+    birthdayVideo.currentTime =
+        0;
+
+
+    birthdayVideo.play()
+        .catch(
+            error => {
+
+                console.log(
+                    "Autoplay was blocked:",
+                    error
+                );
+
+            }
+        );
 
 }
 
@@ -1033,6 +1299,7 @@ birthdayVideo.addEventListener(
     () => {
 
         createConfetti();
+
 
         setTimeout(
             () => {
@@ -1056,10 +1323,17 @@ function showMessage() {
     messageSection.style.display =
         "block";
 
+
     messageSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+
+        behavior:
+            "smooth",
+
+        block:
+            "start"
+
     });
+
 
     typeMessage();
 
@@ -1072,28 +1346,40 @@ function showMessage() {
 
 function typeMessage() {
 
-    let index = 0;
+    let index =
+        0;
 
-    typedMessage.innerHTML = "";
+
+    typedMessage.innerHTML =
+        "";
+
 
     finalHeart.style.display =
         "none";
+
 
     replayBtn.style.display =
         "none";
 
 
-    const speed = 32;
+    const speed =
+        32;
 
 
     function type() {
 
-        if (index < message.length) {
+        if (
+            index <
+            message.length
+        ) {
 
             typedMessage.innerHTML +=
-                message.charAt(index);
+                message.charAt(
+                    index
+                );
 
             index++;
+
 
             setTimeout(
                 type,
@@ -1110,8 +1396,10 @@ function typeMessage() {
                     finalHeart.style.display =
                         "block";
 
+
                     replayBtn.style.display =
                         "inline-block";
+
 
                     createConfetti();
 
@@ -1136,6 +1424,7 @@ function typeMessage() {
 function createConfetti() {
 
     const emojis = [
+
         "❤️",
         "💕",
         "💖",
@@ -1144,6 +1433,7 @@ function createConfetti() {
         "✨",
         "🎂",
         "🥰"
+
     ];
 
 
@@ -1154,7 +1444,9 @@ function createConfetti() {
     ) {
 
         const confetti =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         confetti.classList.add(
@@ -1166,23 +1458,42 @@ function createConfetti() {
             emojis[
                 Math.floor(
                     Math.random()
-                    * emojis.length
+                    *
+                    emojis.length
                 )
             ];
 
 
         confetti.style.left =
-            Math.random() * 100 + "vw";
+            Math.random()
+            *
+            100
+            +
+            "vw";
 
 
         confetti.style.animationDuration =
-            (3 + Math.random() * 4)
-            + "s";
+            (
+                3
+                +
+                Math.random()
+                *
+                4
+            )
+            +
+            "s";
 
 
         confetti.style.fontSize =
-            (15 + Math.random() * 20)
-            + "px";
+            (
+                15
+                +
+                Math.random()
+                *
+                20
+            )
+            +
+            "px";
 
 
         document.body.appendChild(
@@ -1214,36 +1525,52 @@ replayBtn.addEventListener(
 
         birthdayVideo.pause();
 
-        birthdayVideo.currentTime = 0;
+        birthdayVideo.currentTime =
+            0;
+
 
         messageSection.style.display =
             "none";
 
+
         videoSection.style.display =
             "none";
+
 
         mainContent.style.display =
             "block";
 
+
         countdownWrapper.style.display =
             "flex";
+
 
         countdown.innerText =
             "3";
 
+
         typedMessage.innerHTML =
             "";
+
 
         finalHeart.style.display =
             "none";
 
+
         replayBtn.style.display =
             "none";
 
+
         window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+
+            top:
+                0,
+
+            behavior:
+                "smooth"
+
         });
+
 
         setTimeout(
             () => {
